@@ -27,30 +27,7 @@ void debugCallbackFun(GLenum source, GLenum type, GLuint id, GLenum severity,
     puts(message);
 }
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    glm::vec3 camera_position = m_app->get_camera_position();
-    glm::vec3 look_at =  m_app->get_look_at();
-    glm::vec3 up_vector = m_app->get_up_vector();
-    glm::vec3 side = glm::cross(up_vector,look_at);
-
-    float speed = 0.05;
     
-    switch(key) {
-    case GLFW_KEY_S:
-        camera_position -= speed * look_at;
-        break;
-    case GLFW_KEY_W:
-        camera_position += speed * look_at;
-        break;
-    case GLFW_KEY_A:
-        camera_position -= speed * side;
-        break;
-    case GLFW_KEY_D:
-        camera_position += speed * side;
-        break;
-    }
-
-    printf("%f %f %f\n", camera_position.x, camera_position.y, camera_position.z);
-    m_app->set_camera_position(camera_position);
 }
 
 
